@@ -1,15 +1,28 @@
 import os
+import logging
+from atlassian import Jira
 
-from flask import Flask
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger()
 
-app = Flask(__name__)
+from flask import Flask, request
+
+flask_app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@flask_app.route("/", methods=["GET", "POST"])
 def hello_world():
     name = os.environ.get("NAME", "World")
     return "HELLO {}!".format(name)
 
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+@flask_app.route("/jira-webhook", methods=["POST"])
+def jira_events():
+    logger.debug("jira webhook event received!")
+    headers = dict(request.headers)
+    headers.pop("Authorization", None)  # do not log authorization header if exists
+    logger.debug(headers)
+    body = dict(request.json)
+    logger.debug(body)
+
+    return ("OK", 200)
