@@ -1,3 +1,8 @@
+# remove these for your own project if in a private repo 
+# 
+*/terraform.tfvars
+*/backend.tf
+
 # terraform stuff, apple stuff
 .DS_Store
 */.terraform.lock.hcl
@@ -165,4 +170,4 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-cicd/terraform.tfvars
+
