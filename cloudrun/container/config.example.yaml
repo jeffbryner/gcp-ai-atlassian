@@ -1,0 +1,4 @@
+jira_url: "https://somewhere.atlassian.net"
+jira_user: "email@somewhere.com"
+context_page: "ai context"
+context_space: "confluence_space_key"
