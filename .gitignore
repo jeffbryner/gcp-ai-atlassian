@@ -2,7 +2,7 @@
 # 
 */terraform.tfvars
 */backend.tf
-cloudrun/container/config.yaml
+
 
 # terraform stuff, apple stuff
 .DS_Store
