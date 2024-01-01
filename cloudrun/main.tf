@@ -119,3 +119,19 @@ resource "google_secret_manager_secret" "jira_api_token" {
     }
   }
 }
+
+# let service account access secrets
+resource "google_project_iam_member" "secret_access" {
+  provider = google-beta
+  project  = local.project_id
+  role     = "roles/secretmanager.secretAccessor"
+  member   = "serviceAccount:${google_service_account.cloudrun_service_identity.email}"
+}
+
+# allow the  service account to access AI
+resource "google_project_iam_member" "ai_access" {
+  provider = google-beta
+  project  = local.project_id
+  role     = "roles/aiplatform.user"
+  member   = "serviceAccount:${google_service_account.cloudrun_service_identity.email}"
+}
