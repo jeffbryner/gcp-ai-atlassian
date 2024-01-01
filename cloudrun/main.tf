@@ -101,3 +101,21 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
 
   policy_data = data.google_iam_policy.noauth.policy_data
 }
+
+# jira api token
+resource "google_secret_manager_secret" "jira_api_token" {
+  secret_id = "jira_api_token"
+  project   = local.project_id
+
+  labels = {
+    label = "jira_api_token"
+  }
+
+  replication {
+    user_managed {
+      replicas {
+        location = local.location
+      }
+    }
+  }
+}

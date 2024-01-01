@@ -39,7 +39,8 @@ locals {
     "run.googleapis.com",
     "containerregistry.googleapis.com",
     "artifactregistry.googleapis.com",
-    "orgpolicy.googleapis.com"
+    "orgpolicy.googleapis.com",
+    "secretmanager.googleapis.com"
   ]
   cloudbuild_sa_viewer_roles = [
     "roles/browser",
