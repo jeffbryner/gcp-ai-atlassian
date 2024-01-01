@@ -1,3 +1,13 @@
 Flask
 gunicorn
 atlassian-python-api
+jira
+google-crc32c
+google-cloud-secret-manager
+google-auth
+google-api-python-client
+google-cloud-aiplatform
+backoff
+tenacity
+pyyaml
+html2text
